@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+
+  adam-website.api:
+    image: adam-website/api:${TAG:-latest}
+    container_name: adam-website.api
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    depends_on:
+      - adam-website.mssqldb
+  
+  adam-website.mssqldb:
+    image: microsoft/mssql-server-linux:2017-latest
+    container_name: adam-website.mssqldb

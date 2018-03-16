@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+
+  adam-website.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5101:80"
+
+  adam-website.mssqldb:
+    environment:
+      - SA_PASSWORD=admin123!
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
